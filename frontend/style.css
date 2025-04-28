@@ -1,0 +1,152 @@
+/* ========================
+   Style.css - 10/10 Chat UI 
+=========================== */
+
+:root {
+    --color-bg: #f0f2f5;
+    --color-container: #ffffff;
+    --color-header: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    --color-user: #dcf8c6;
+    --color-bot: #f1f0f0;
+    --color-input-bg: #f5f5f5;
+    --color-primary: #2575fc;
+    --color-primary-hover: #1a5bb8;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Global Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: var(--color-bg);
+    font-family: var(--font-family);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .chat-container {
+    width: 380px;
+    max-width: 100%;
+    height: 600px;
+    background: var(--color-container);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .chat-header {
+    background: var(--color-header);
+    color: #fff;
+    padding: 16px;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .messages {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 L10 0 M-2 2 L2 -2 M8 12 L12 8' stroke='%23ededed' stroke-width='1'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+  }
+  
+  /* Custom Scrollbar */
+  .messages::-webkit-scrollbar {
+    width: 6px;
+  }
+  .messages::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .messages::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.2);
+    border-radius: 3px;
+  }
+  
+  .message {
+    margin-bottom: 10px;
+    padding: 10px 14px;
+    border-radius: 16px;
+    max-width: 75%;
+    position: relative;
+    word-wrap: break-word;
+    line-height: 1.4;
+    animation: fadeIn 0.2s ease-out;
+  }
+  
+  .user-message {
+    align-self: flex-end;
+    background: var(--color-user);
+    border-bottom-right-radius: 4px;
+  }
+  
+  .bot-message {
+    align-self: flex-start;
+    background: var(--color-bot);
+    border-bottom-left-radius: 4px;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .input-container {
+    display: flex;
+    padding: 8px;
+    background: var(--color-input-bg);
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  #user-input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    transition: box-shadow 0.2s;
+  }
+  #user-input:focus {
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+  }
+  
+  #send-btn {
+    margin-left: 8px;
+    padding: 0 20px;
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+  #send-btn:hover {
+    background: var(--color-primary-hover);
+  }
+  #send-btn:active {
+    transform: scale(0.97);
+  }
+  #send-btn:disabled {
+    background: #999;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive */
+  @media (max-width: 400px) {
+    .chat-container { width: 100%; height: 100vh; border-radius: 0; }
+    .chat-header { font-size: 1rem; }
+  }
+  

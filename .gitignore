@@ -1,0 +1,12 @@
+# Python
+venv/
+__pycache__/
+
+# Frontend server
+node_modules/
+
+# VSCode
+.vscode/
+
+# OS
+.DS_Store
